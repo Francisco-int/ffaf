@@ -7,13 +7,13 @@ public class MovePlataform : MonoBehaviour
 {
 
     public float speed;
-    SpawnPlataform spawnPlataform;
+    [SerializeField] SpawnPlataform spawnPlataform;
     bool spawnPlataformAble;
 
     // Start is called before the first frame update
     void Start()
     {
-        spawnPlataform = GetComponent<SpawnPlataform>();
+        spawnPlataform = GameObject.Find("SpawnPlataformPoint").GetComponent<SpawnPlataform>();
 
     }
     void Awake()
@@ -24,9 +24,11 @@ public class MovePlataform : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(transform.position.x < 0 && spawnPlataformAble)
+        if(transform.position.x < -1 && spawnPlataformAble)
         {
             SendSpawnMessage();
+            spawnPlataformAble = false;
+            Debug.Log("spawn");
         }
         transform.Translate(new Vector3(-speed * Time.deltaTime, 0, 0));
     }

@@ -10,14 +10,12 @@ public class nahu : MonoBehaviour
     public float speed;
     [SerializeField] Rigidbody rb;
     float movimientoZ;
-    SpawnPlataform spawnPlataform;
 
 
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        spawnPlataform = rb.GetComponent<SpawnPlataform>();
     }
 
     // Update is called once per frame
@@ -42,9 +40,6 @@ public class nahu : MonoBehaviour
         }
     }
 
-    void SendSpawnMessage()
-    {
-        spawnPlataform.SpawnPlataforms();
-    }
+    
 
 }
