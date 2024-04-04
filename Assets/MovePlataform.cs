@@ -33,8 +33,6 @@ public class MovePlataform : MonoBehaviour
         transform.Translate(new Vector3(-speed * Time.deltaTime, 0, 0));
     }
 
-
-
     void SendSpawnMessage()
     {
         spawnPlataform.SpawnPlataforms();
